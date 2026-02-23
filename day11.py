@@ -14,13 +14,15 @@ def calculate_score(cards):
         cards.append(1)
     return sum(cards)
 
-def compare(computer_score, user_score):
-    if computer_score == user_score:
+def compare(com_score, u_score):
+    if com_score == u_score:
         return "DRAW"
-    elif 21 > user_score > computer_score:
-        return f"your score is {user_score} and computer score is {computer_score}, you WON !"
-    elif user_score > 21:
-        return f"You score is {user_score} way higher than 21, so you lost"
+    elif 21 > u_score > com_score:
+        return f"your score is {u_score} and computer score is {com_score}, you WON !"
+    elif computer_score > 21:
+        return f"computer score is {u_score} and way higher than 21, so, User WON"
+    elif u_score > 21:
+        return f"You score is {u_score} way higher than 21, so you lost"
     else:
         return "Computer WON !"
 
@@ -51,13 +53,14 @@ while not is_game_over:
         #     if computer_score < 17:
         #         computer_cards.append(del_card())
         #         if
-if computer_score < 17:
+while computer_score < 17:
     computer_cards.append(del_card())
     computer_score = calculate_score(computer_cards)
-    if computer_score > 21:
-        print("User, You WON !")
-        is_game_over = True
 
+print(f"your final score is {user_score}")
+print(f"computer final score is {computer_score}")
+
+print(compare(computer_score, user_score))
 
 
 
