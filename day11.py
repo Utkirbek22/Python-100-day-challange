@@ -20,10 +20,6 @@ def compare(com_score, u_score):
     elif 21 > u_score > com_score:
         return f"your score is {u_score} and computer score is {com_score}, you WON !"
     elif computer_score > 21:
-        return f"computer score is {u_score} and way higher than 21, so, User WON"
-    elif u_score > 21:
-        return f"You score is {u_score} way higher than 21, so you lost"
-    else:
         return "Computer WON !"
 
 user_cards = []
