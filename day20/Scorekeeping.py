@@ -1,0 +1,23 @@
+from turtle import Turtle
+
+class Score(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.count = 0
+        self.color("white")
+        self.penup()
+        self.goto(0, 430)
+        self.write(f"Score: {self.count}", align="center", font=("Arial", 24, "normal") )
+        self.hideturtle()
+
+    def increase(self):
+        self.count += 1
+        self.clear()
+        self.write(f"Score: {self.count}", align="center", font=("Arial", 24, "normal") )
+
+    def game_over(self):
+        self.goto(0,0)
+        self.write("Game over", align="center", font=("Arial", 24, "normal"))
+
+
+

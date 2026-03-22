@@ -1,4 +1,5 @@
 from turtle import Turtle
+from food import Food
 
 S_DISTANCE = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
@@ -20,6 +21,7 @@ class Snakes:
             snake.penup()
             snake.goto(snake_index)
             self.snakes.append(snake)
+
 
     def move(self):
         for sn_num in range(len(self.snakes) - 1, 0, -1):
