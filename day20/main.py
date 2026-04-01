@@ -36,7 +36,7 @@ while is_game_on:
 
     if snake.snakes[0].xcor() > 480 or snake.snakes[0].xcor() < -480 or snake.snakes[0].ycor() > 480 or snake.snakes[0].ycor() < -480:
         is_game_on = False
-        score.game_over()
+
 
         #  Detact with the tail
     for segment in snake.snakes[1:]:
@@ -44,7 +44,7 @@ while is_game_on:
         #     pass
         if snake.snakes[0].distance(segment) < 10:
             is_game_on = False
-            score.game_over()
+
 
 screen.exitonclick()
 
