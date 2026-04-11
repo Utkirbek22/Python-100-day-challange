@@ -25,6 +25,17 @@ numbers  = [1,2,3]
 #
 
 
-names = ["Jack", "Utkirbek", "Lili","Lolo", "Alis"]
+# names = ["Jack", "Utkirbek", "Lili","Lolo", "Alis"]
+#
+# short_name = [name.upper() for name in names if len(name) < 5]
+# print(short_name)
 
-short_name = []
+
+
+
+
+
+
+
+
+
