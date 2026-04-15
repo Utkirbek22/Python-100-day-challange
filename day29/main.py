@@ -2,9 +2,44 @@ from pyexpat.errors import messages
 from tkinter import *
 from PIL import Image,ImageTk
 from tkinter import messagebox
-
+import random
+import pyperclip
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def gen_pass():
+    letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    numbers = ["0","1","2","3","4","5","6","7","8","9"]
+    symbols = ["!", "@", "#", "$", "%", "^", "&", "*","(", ")", "-", "_", "=", "+" "[", "]", "{", "}", "|",";", ":", "'", '"', ",", ".", "<", ">", "?","/", "\\", "~", "`"]
+
+    # user_letters = int(input("How many letters would you like to have in your password ?: \n "))
+    # user_symbols = int(input("How many symbols do you wanna have ? \n" ))
+    # user_nums = int(input("How many numbers would you like to have ?:\n "))
+    # #
+    # for _ in range(0, user_letters):
+    #     my_password.append(random.choice(letters))
+
+    letter_password = [random.choice(letters)  for _ in range(random.randint(1,6))]
+
+    # for _ in range(0, user_symbols):
+    #     my_password.append(random.choice(symbols))
+    symbol_password = [random.choice(symbols) for _ in range(random.randint(1,4))]
+
+    # for _ in range(0, user_nums):
+    #     my_password.append(random.choice(numbers))
+
+    number_password = [random.choice(numbers) for _ in range(random.randint(1,5))]
+
+    big_password = letter_password + number_password + symbol_password
+    random.shuffle(big_password)
+    # password = ""
+    # for char in big_password:
+    #     password += char
+
+    password = "".join(big_password)
+    password_entry.insert(0,password)
+    pyperclip.copy(password)
+
+
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
@@ -60,7 +95,7 @@ password_entry = Entry(width=21)
 password_entry.grid(column=1,row=3)
 
 #  Button
-generate_password_entry = Button(text="Generate")
+generate_password_entry = Button(text="Generate", command=gen_pass)
 generate_password_entry.grid(column=2,row=3)
 add_button = Button(text="Add", command=save)
 add_button.grid(row=4,column=1, columnspan=2)
