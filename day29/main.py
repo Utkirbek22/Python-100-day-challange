@@ -1,5 +1,7 @@
+from pyexpat.errors import messages
 from tkinter import *
 from PIL import Image,ImageTk
+from tkinter import messagebox
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -9,11 +11,18 @@ def save():
     website = entry_website.get()
     email = email_entry.get()
     password = password_entry.get()
+    if len(website) == 0 or len(password) == 0:
+        messagebox.askokcancel(title="OOPs", message="that is empty")
+    else:
+        is_oaky = messagebox.askokcancel(title=website, message=f"There are details entered: \nEmail: {email}"
+                                                                f"Password: {password} \nIs it is to save?")
+        if is_oaky:
+            with open("data.txt","a") as data_file:
+                data_file.write(f"{website} | {email} | {password}\n")
+                entry_website.delete(0,END)
+                password_entry.delete(0,END)
 
-    with open("data.txt","a") as data_file:
-        data_file.write(f"{website} | {email} | {password}\n")
-        entry_website.delete(0,END)
-        password_entry.delete(0,END)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
