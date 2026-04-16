@@ -4,6 +4,7 @@ from PIL import Image,ImageTk
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def gen_pass():
@@ -46,14 +47,31 @@ def save():
     website = entry_website.get()
     email = email_entry.get()
     password = password_entry.get()
+    new_data = {
+        website: {
+            "email": email,
+            "password": password
+        }
+    }
     if len(website) == 0 or len(password) == 0:
         messagebox.askokcancel(title="OOPs", message="that is empty")
     else:
-        is_oaky = messagebox.askokcancel(title=website, message=f"There are details entered: \nEmail: {email}"
-                                                                f"Password: {password} \nIs it is to save?")
-        if is_oaky:
-            with open("data.txt","a") as data_file:
-                data_file.write(f"{website} | {email} | {password}\n")
+        try:
+            with open("data.json","r") as data_file:
+                #  reading old data
+                data = json.load(data_file)
+
+        except:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+                #  old data with new data
+
+        else:
+            data.update(new_data)
+
+            with open("data.json", "w") as data_file:
+                json.dump(data, data_file, indent=4)
+
                 entry_website.delete(0,END)
                 password_entry.delete(0,END)
 
