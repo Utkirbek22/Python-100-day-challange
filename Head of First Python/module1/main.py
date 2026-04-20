@@ -42,58 +42,13 @@ names = ["BMW", "Lambo", "Merc", "Audi","Ferrari", ["GT-7", "M5", [ "Utkirbek", 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Recursion
 
 # def lol(the_list):
 #     for item in the_list:
-#         # if isinstance(item,list):
-#         lol(item)
+#         if isinstance(item,list):
+#             lol(item)
+#         else:
+#             print(item)
 #
 # lol(names)
