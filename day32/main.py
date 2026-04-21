@@ -11,10 +11,13 @@
 #                                                                              " that is your first email messgae from yoursel, congrats, you are improving your tech skills")
 # connection.close()
 
-import datetime as dt
-
-now = dt.datetime.now()
-year = now.year
-
-print(year)
+# import datetime as dt
+#
+# now = dt.datetime.now()
+# year = now.year
+#
+# current_day = now.day
+# print(current_day)
+#
+# print(year)
 
