@@ -1,6 +1,7 @@
 import requests
+import os
 
-api_key = "0ea7ac9a261c5a93471a2cbec0f6050a"
+api_key = os.environ.get("owm_api_key")
 parametrs = {
     "lat": 52.239018,
     "lon": 21.020176,
