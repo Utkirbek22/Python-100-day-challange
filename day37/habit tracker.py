@@ -1,4 +1,8 @@
+from calendar import month
+
 import requests
+from datetime import *
+
 pixel_endpoint = "https://pixe.la/v1/users"
 TOKEN = "adsdfsgfsdf"
 USERNAME = "utkirbek"
@@ -32,10 +36,11 @@ headers = {
 #
 # print(response.text)
 
+today = datetime(year=2026, month=4,day=29)
 
 pixal_data = {
-    "date": "20260429",
-    "quantity": "22.7"
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "6.2"
 }
 
 pixel_creation_endpoint = f"{pixel_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
